@@ -26,11 +26,26 @@ During your challenge, you will be pulled aside by a PM for a 5 minute interview
 
 Explain in detail the workings of a dynamic array:
 * What is the runtime complexity to access an array, add or remove from the front, and add or remove from the back?
+
+    Access an array at a specific index: O(1)
+    Append (add to the back): O(1) unless array is full then it is O(n)
+    Delete: O(1) may be O(n) if resizing needs to happen
+    Insert or Delete in the front: O(n) need to shift the other units
+    Insert and delete in middle: O(n) things need to shift
+
+
 * What is the worse case scenario if you try to extend the storage size of a dynamic array?
+
+    Typically resizing is expensive because you have to allocate a bigger array and copy over all of the elements from the array you have overgrow before we can finally append our item. O(n) when at capacity and appending worst-case usually O(1)
 
 Explain how blockchain networks remain in consensus:
 * What does a node do if it gets a message from another in the network with a new block?
+
+    If it is a valid solution, the node will hash the previous block and add it to the new block, and add the rest of the properties, including a timestamp, index, and the list of pending transactions, which are now confirmed. It then shares the new block with the nodes in its network, which check the new block to make sure that it has an index one higher than the last block, a previous hash that matches the previous block, and a valid solution. If these checks pass, then the new block is added and spreads through the network, bearing in mind that consensus is determined by the longest valid chain.
+
 * Why can't someone cheat by changing a transaction from an earlier block to give themselves coins?
+
+    Proof of work secures the chain by making it nearly computationally impossible to cheat, because the cheater would have to do a greater amount of work than everyone else. If these checks pass, then the new block is added and spreads through the network, bearing in mind that consensus is determined by the longest valid chain.This distribution means that the chain itself is nearly impossible to assault. We’ve learned that to change the chain itself, we need to redo the previous hash stored in all subsequent blocks. But as described above, it would take a vast amount of computing power to do so.
 
 ## Project Set Up
 
